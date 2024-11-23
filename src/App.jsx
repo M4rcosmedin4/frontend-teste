@@ -7,7 +7,7 @@ function App() {
 
   // Carregar os itens da API ao iniciar
   useEffect(() => {
-    fetch('http://3.129.43.160:5000/api/items')
+    fetch('/api/items')
       .then(response => response.json())
       .then(data => setItems(data));
   }, []);
@@ -18,7 +18,7 @@ function App() {
     if (input.trim() === '') return;
 
     const newItem = { text: input };
-    const response = await fetch('http://3.129.43.160:5000/api/items', {
+    const response = await fetch('/api/items', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newItem),
@@ -31,7 +31,7 @@ function App() {
 
   // Função para deletar item
   const deleteItem = async (id) => {
-    await fetch(`http://3.129.43.160:5000/api/items/${id}`, { method: 'DELETE' });
+    await fetch(`/api/items/${id}`, { method: 'DELETE' });
     setItems(items.filter(item => item._id !== id));
   };
 
