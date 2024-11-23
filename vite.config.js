@@ -13,7 +13,7 @@ export default defineConfig({
   base: '/frontend-teste/',
   proxy: {
     '/api': {
-      target: 'http://3.129.43.160:5000',
+      target: 'http://18.188.250.67:5000',
       changeOrigin: true,
       secure: false,
     },
